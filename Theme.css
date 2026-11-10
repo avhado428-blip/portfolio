@@ -1,0 +1,100 @@
+/* =====================================================
+   theme.css : dark sage palette (load AFTER style.css and holo.css)
+   ===================================================== */
+:root{
+  --bg:#0a0e0f; --card:rgba(27,33,31,.88); --text:#fff; --muted:rgba(255,255,255,.78);
+  --accent:#8fb8a0; --accent2:#a9d3b9; --line:#2d3532;
+  --edge:#4a5651; --depth:#141918;
+  --peach:#e3a88a; --mint:#a9d3b9; --sage:#8fb8a0; --sagedark:#6f9f86;
+}
+
+/* top bar + progress */
+.topnav{background:rgba(9,12,13,.96)}
+.topnav .tabs a,.topnav .navlinks a{background:#0f1415}
+.topnav .tabs a:hover,.topnav .navlinks a:hover{background:#192021}
+.topnav .tabs a.active{background:#242b29}
+#progress{background:linear-gradient(90deg,var(--sage),var(--peach))}
+
+/* section dividers, contact pills */
+section{border-top-color:rgba(255,255,255,.07)}
+.contacts a{background:rgba(30,37,35,.7);border-color:rgba(255,255,255,.28)}
+
+/* education + experience + resume: sage fading border instead of blue */
+section #eduGraph,section .holo-grid,.resume-card{
+  background:linear-gradient(180deg,rgba(143,184,160,.07),rgba(143,184,160,0) 80%);
+  box-shadow:0 -10px 50px -18px rgba(143,184,160,.18),0 34px 60px -26px rgba(0,0,0,.85)}
+section #eduGraph::before,section .holo-grid::before,.resume-card::before{
+  background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(143,184,160,.26) 45%,rgba(143,184,160,0) 92%)}
+.resume-eyebrow,.pc-eyebrow{color:var(--mint)}
+.rbtn.solid{background:#e8eee8;color:#0e1413;border-color:#e8eee8}
+.rbtn{border-color:rgba(255,255,255,.35)}
+
+/* heatmaps (LeetCode grid) */
+.grid i{background:#232a28}
+.grid i.l1{background:#6b3f1f}.grid i.l2{background:#a85f25}
+.grid i.l3{background:#e07a2b}.grid i.l4{background:#ff9a3d}
+
+/* zipper box (the gold zipper itself stays) */
+.zip-wrap{background:#1f2523;box-shadow:none}
+.zip-bg{display:none !important}
+
+/* achievement cards + arrows */
+.slide:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 6px 0 #1b2320,0 7px 0 #34413b,0 22px 40px rgba(143,184,160,.22)}
+.ach-arrow{background:rgba(27,33,31,.92)}
+.ach-arrow:hover{background:#2a3330}
+.ach-face{background:linear-gradient(160deg,rgba(32,39,37,.98),rgba(13,17,16,.99))}
+
+/* tech stack tabs + chips */
+.stack-tabs button{background:rgba(255,255,255,.03)}
+.stack-tabs button.on{background:var(--sagedark);color:#fff}
+#chips span{color:#101514}
+#chips span::before,#chips span::after{background:#0d1112}
+#chips span[data-cat^="languages"]{--c:#a9bfb0}
+#chips span[data-cat^="ai"]{--c:#c9bfb2}
+#chips span[data-cat^="frameworks"]{--c:#8fb8a0}
+#chips span[data-cat^="tools"]{--c:#bdc4bc}
+#chips span[data-cat^="editing"]{--c:#c9a79b}
+#chips span[data-cat^="engines"]{--c:#c9a79b}
+
+/* Stardle arena */
+section:has(#board){
+  border-color:var(--edge);
+  background:
+    radial-gradient(900px 420px at 12% -10%,rgba(143,184,160,.14),transparent 60%),
+    radial-gradient(700px 420px at 100% 110%,rgba(227,168,138,.08),transparent 60%),
+    linear-gradient(160deg,#1d2321,#0c1010 70%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 6px 0 var(--depth),0 7px 0 var(--line),0 26px 50px rgba(0,0,0,.6),0 0 60px rgba(143,184,160,.08)}
+section:has(#board) h2{text-shadow:0 0 14px rgba(169,211,185,.45)}
+section:has(#board) .tile{
+  background:linear-gradient(160deg,rgba(48,58,54,.55),rgba(14,18,17,.75));
+  border-color:rgba(160,180,170,.55);
+  box-shadow:0 4px 0 var(--depth),0 8px 14px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1)}
+/* FIX: result colours were being overridden by the rule above */
+section:has(#board) .tile.correct{background:#3f9d6b;border-color:#5fc08c;box-shadow:0 4px 0 #1f5a3b,0 0 20px rgba(95,192,140,.55)}
+section:has(#board) .tile.present{background:#c9a227;border-color:#e6c24f;box-shadow:0 4px 0 #75600f,0 0 20px rgba(230,194,79,.5)}
+section:has(#board) .tile.absent{background:#3a3f3d;border-color:#4d5552;box-shadow:0 4px 0 #1c1f1e}
+section:has(#board) .key{background:linear-gradient(180deg,#6b736f,#535a57);border-color:#7d8682;box-shadow:0 4px 0 #333836,0 7px 10px rgba(0,0,0,.35)}
+section:has(#board) .key:active{box-shadow:0 1px 0 #333836}
+section:has(#board) .key.correct{background:#3f9d6b;border-color:#5fc08c}
+section:has(#board) .key.present{background:#c9a227;border-color:#e6c24f}
+section:has(#board) .key.absent{background:#2e3331;border-color:#3d4340;opacity:.7}
+.btn{background:var(--sagedark);border-color:var(--sage);box-shadow:0 4px 0 #3f6252,0 8px 16px rgba(143,184,160,.25)}
+.btn:active{box-shadow:0 1px 0 #3f6252}
+
+/* play button: sage to peach */
+.play-toggle{background:linear-gradient(135deg,var(--sage),var(--peach))}
+.play-toggle.big{box-shadow:0 0 30px rgba(143,184,160,.5)}
+.play-toggle.big::after{border-color:var(--sage)}
+
+/* photo frame, pulse etc. */
+@keyframes pulse{50%{box-shadow:0 0 0 10px rgba(143,184,160,.18)}}
+.pc-bar i{background:linear-gradient(90deg,var(--sage),var(--peach))}
+.note-tape{background:rgba(143,184,160,.6)}
+.note:focus-visible{box-shadow:0 0 0 2px var(--sage)}
+
+/* nav social icons: keep them visible on small / zoomed-in windows too */
+@media (max-width:760px){
+  .topnav .navlinks{display:flex;gap:.35rem;padding:0 .5rem}
+  .topnav .navlinks a{width:30px;height:30px}
+  .topnav .navlinks svg{width:15px;height:15px}
+}

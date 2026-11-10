@@ -1,0 +1,96 @@
+/* =====================================================
+   showcase.css : project showcase, light cream band (load AFTER projects.css)
+   ===================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap");
+
+/* full-width cream band that breaks out of the 960px column */
+#showcase{
+  width:100vw;margin:3rem 0 0 calc(50% - 50vw);
+  padding:clamp(3rem,6vw,5.5rem) clamp(1rem,4.5vw,4rem);
+  display:grid;gap:clamp(3.5rem,7vw,6.5rem);
+  background:#f8f5f0;color:#2b2723;
+  font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+
+.sc-item{
+  position:relative;width:100%;max-width:1480px;margin:0 auto;padding-top:56px;
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,3.6rem);align-items:center;
+}
+
+/* big faded number, half hidden behind the card */
+.sc-num{
+  position:absolute;top:-8px;left:4px;z-index:0;pointer-events:none;
+  font-family:"Playfair Display",Georgia,"Times New Roman",serif;font-weight:800;
+  font-size:clamp(5rem,8vw,6.4rem);line-height:1;letter-spacing:-.01em;color:#ebe6dd;
+}
+
+/* white card */
+.sc-card{
+  position:relative;z-index:1;background:#fff;border:1px solid #ece7df;border-radius:30px;
+  padding:clamp(1.4rem,2.4vw,2.1rem);
+  box-shadow:0 1px 2px rgba(60,45,20,.04),0 18px 36px -22px rgba(60,45,20,.18);
+}
+.sc-head{display:flex;align-items:center;gap:.8rem}
+.sc-mark{
+  display:grid;place-items:center;width:52px;height:52px;border-radius:14px;
+  background:#f1eaff;color:#2a1b4d;font-weight:700;font-size:1.02rem;letter-spacing:.02em;
+}
+.sc-badge{padding:.38rem .95rem;border-radius:999px;background:#6d28d9;color:#fff;font-size:.8rem;font-weight:700;letter-spacing:.01em}
+
+.sc-card h3{
+  margin-top:1.15rem;font-family:"Playfair Display",Georgia,"Times New Roman",serif;font-weight:700;
+  font-size:clamp(1.7rem,2.5vw,2.15rem);line-height:1.15;color:#111;
+}
+.sc-sub{margin:.4rem 0 1.15rem;color:#8b867e;font-size:.88rem;font-weight:600;line-height:1.5}
+
+.sc-tags{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0 0 1.2rem;padding:0}
+.sc-tags li{padding:.4rem .95rem;border-radius:999px;background:#f1ede7;color:#26221e;font-size:.84rem;font-weight:600}
+
+.sc-points{list-style:none;margin:0;padding:0}
+.sc-points li{position:relative;padding-left:1.15rem;margin:0 0 .12rem;color:#3a3631;font-size:.97rem;line-height:1.75}
+.sc-points li::before{content:"";position:absolute;left:.1rem;top:.82em;width:5px;height:5px;border-radius:50%;background:#3a3631}
+
+.sc-btns{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
+.sc-btn{
+  display:inline-block;padding:.7rem 1.4rem;border-radius:999px;border:1px solid #d9d3ca;background:#fff;
+  color:#1a1714;font-size:.88rem;font-weight:700;text-decoration:none;transition:border-color .2s,transform .2s;
+}
+.sc-btn:hover{border-color:#1a1714;transform:translateY(-2px)}
+
+/* dark slideshow */
+.sc-show{position:relative;z-index:1}
+.sc-view{
+  overflow:hidden;border-radius:28px;background:#14110f;aspect-ratio:16/9;
+  box-shadow:0 24px 44px -24px rgba(20,12,0,.55);
+}
+.sc-track{display:flex;height:100%;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.sc-slide{flex:0 0 100%;width:100%;height:100%;object-fit:contain;background:#14110f;display:block}
+
+.sc-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:2;
+  width:36px;height:36px;border-radius:50%;display:grid;place-items:center;border:0;
+  background:rgba(12,12,12,.92);color:#fff;font-size:1.5rem;line-height:1;padding:0 0 3px;font-family:"Inter",sans-serif;
+  transition:background .2s,transform .2s;
+}
+.sc-arrow:hover{background:#000;transform:translateY(-50%) scale(1.08)}
+.sc-prev{left:12px}
+.sc-next{right:12px}
+
+.sc-dots{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:2;display:flex;align-items:center;gap:6px}
+.sc-show.is-video .sc-dots{bottom:60px}
+.sc-dot{
+  position:relative;width:8px;height:8px;padding:0;border:0;border-radius:999px;background:#6b6862;
+  transition:width .25s,background .25s;
+}
+.sc-dot::after{content:"";position:absolute;inset:-7px -3px}
+.sc-dot.on{width:24px;background:#b4ec3c}
+
+.sc-arrow:focus-visible,.sc-dot:focus-visible,.sc-btn:focus-visible{outline:2px solid #6d28d9;outline-offset:3px}
+
+@media (max-width:960px){
+  .sc-item{grid-template-columns:1fr}
+  .sc-num{font-size:4.4rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .sc-track,.sc-arrow,.sc-dot,.sc-btn{transition:none}
+}
