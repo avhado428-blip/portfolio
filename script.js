@@ -718,20 +718,7 @@ document.addEventListener("keydown", function (e) {
 document.getElementById("restart").onclick = newGame;
 newGame();
 
-/* ---------- Music: keeps playing in the background once started ---------- */
-(function () {
-  const song = document.getElementById("song");
-  song.volume = 0.8;
-  function toggle() { if (song.paused) song.play().catch(function () {}); else song.pause(); }
-  document.getElementById("playBtn").onclick = toggle;
-  
-  song.addEventListener("play", function () { document.body.classList.add("playing"); });
-  song.addEventListener("pause", function () { document.body.classList.remove("playing"); });
-  const bar = document.querySelector(".pc-bar i");
-  song.addEventListener("timeupdate", function () {
-    if (bar && song.duration) bar.style.width = (song.currentTime / song.duration * 100) + "%";
-  });
-})();
+
 
 
 /* ---------- Name: compact TechText (dashed outline, selection frame, drag + kick) ---------- */
