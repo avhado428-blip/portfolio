@@ -8,9 +8,25 @@
   <link rel="stylesheet" href="holo.css">
   <link rel="stylesheet" href="theme.css">
   <link rel="stylesheet" href="projects.css">
+<style>
+.connect-card{flex:1 1 320px;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding:2.4rem clamp(1.2rem,4vw,2.4rem);border-radius:28px;border:1px solid var(--edge);
+  background:linear-gradient(160deg,rgba(32,39,37,.92),rgba(13,17,16,.97));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 6px 0 var(--depth),0 7px 0 var(--line),0 30px 60px rgba(0,0,0,.6)}
+.cc-eyebrow{letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;font-weight:700;color:var(--mint);margin-bottom:.4rem}
+.cc-title{font-size:clamp(1.4rem,4vw,2.2rem);font-weight:700;line-height:1.15;color:#fff;margin-bottom:1.4rem}
+.cc-mail{width:92px;height:92px;border-radius:50%;display:grid;place-items:center;text-decoration:none;
+  background:linear-gradient(135deg,var(--sage),var(--peach));box-shadow:0 0 30px rgba(143,184,160,.5);transition:transform .25s}
+.cc-mail:hover{transform:scale(1.1)}
+.cc-mail svg{width:42px;height:42px;fill:none;stroke:#101514;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cc-addr{margin-top:1.1rem;color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:2px}
+.cc-addr:hover{color:#fff;border-color:#fff}
+/* email address text in the top nav, right of the icons */
+.navlinks a.nav-mail{width:auto;height:auto;padding:0 .8rem;font-size:.85rem;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center}
+@media(max-width:760px){.navlinks a.nav-mail{display:none}}
+</style>
 </head>
 <body>
-
 
 <canvas id="stars"></canvas>
 <div id="progress"></div>
@@ -34,8 +50,8 @@
     <a href="https://www.linkedin.com/in/omkar-avhad-61a6b0379" target="_blank" rel="noopener" aria-label="LinkedIn">
       <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
     </a>
-    <a href="https://www.instagram.com/omkar__avhad" target="_blank" rel="noopener" aria-label="Instagram">
-      <svg viewBox="0 0 24 24" class="stroke"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8" fill="#fff"/></svg>
+    <a href="mailto:o.avhad@somaiya.edu" aria-label="Email">
+      <svg viewBox="0 0 24 24" class="stroke"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
     </a>
     <a href="https://x.com/avhad1110" target="_blank" rel="noopener" aria-label="X (Twitter)">
       <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -43,6 +59,7 @@
     <a href="https://leetcode.com/u/OmkarAvhad/" target="_blank" rel="noopener" aria-label="LeetCode">
       <svg viewBox="0 0 24 24" class="stroke"><path d="M15 5l-8 8a2.5 2.5 0 000 3.5l3 3a2.5 2.5 0 003.5 0l2.5-2.5M10 12h10"/></svg>
     </a>
+    <a class="nav-mail" href="mailto:o.avhad@somaiya.edu">o.avhad@somaiya.edu</a>
   </div>
 </nav>
 
@@ -78,7 +95,7 @@
   <div class="contacts">
     <a href="https://www.linkedin.com/in/omkar-avhad-61a6b0379" target="_blank" rel="noopener">LinkedIn</a>
     <a href="tel:+919594355693">+91 95943 55693</a>
-    <a href="https://www.instagram.com/omkar__avhad" target="_blank" rel="noopener">@omkar__avhad</a>
+    <a href="mailto:o.avhad@somaiya.edu">o.avhad@somaiya.edu</a>
   </div>
   <div class="scroll-cue">SCROLL</div>
 </header>
@@ -97,8 +114,7 @@
 <!-- PROJECTS -->
 <section class="reveal" id="projects">
   <h2 class="sec-title">Projects</h2>
-  <div class="pj-grid" id="projectCards"></div>
-     <div id="showcase"></div>
+  <div id="showcase"></div>
 </section>
 
 <!-- 3. HEATMAPS (zipper) -->
@@ -294,29 +310,16 @@
   </div>
 </section>
 
-<!-- 7. PLAYER + NOTE (last) -->
+<!-- 7. CONNECT + NOTE (last) -->
 <section class="reveal center" id="outro">
   <div class="outro-row">
-    <div class="border-glow-card" id="playerGlow">
-      <span class="edge-light"></span>
-      <div class="border-glow-inner">
-        <div class="player-card" id="playerCard">
-          <div class="pc-disc"><div class="pc-vinyl"><span></span></div></div>
-          <div class="pc-info">
-            <p class="pc-eyebrow">Now playing</p>
-            <p class="big-phrase">Before you go, press play</p>
-            <p class="sub">My outro track will keep playing in the background.</p>
-            <div class="pc-track"><span>Xenogenesis</span><div class="pc-bar"><i></i></div></div>
-          </div>
-          <div class="pc-controls">
-            <button class="play-toggle big" id="playBtn" aria-label="Play or pause music">
-              <svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-              <svg class="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
-            </button>
-            <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-          </div>
-        </div>
-      </div>
+    <div class="connect-card">
+      <p class="cc-eyebrow">Get in touch</p>
+      <p class="cc-title">Connect with me here</p>
+      <a class="cc-mail" href="mailto:o.avhad@somaiya.edu" aria-label="Email Omkar">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+      </a>
+      <a class="cc-addr" href="mailto:o.avhad@somaiya.edu">o.avhad@somaiya.edu</a>
     </div>
     <div class="note-wrap">
       <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -334,7 +337,6 @@
       </div>
     </div>
   </div>
-  <audio id="song" src="assets/xenogenesis.mp3" loop preload="auto"></audio>
 </section>
 
 </main>
@@ -343,10 +345,8 @@
 <!-- achievement pop-up (the card is built by script.js) -->
 <div class="ach-modal" id="achModal" aria-hidden="true"></div>
 
-
 <script src="holo.js"></script>
 <script src="edu-graph.js"></script>
-<script src="projects.js"></script>
 <script src="showcase.js"></script>
 <script src="script.js"></script>
 
